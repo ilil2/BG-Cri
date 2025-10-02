@@ -1,5 +1,8 @@
 if [ "$1" == "" ]; then
 	me=$(whoami)
+elif [ "$(echo "$1" | cut -d'=' -f1)" == "file" ]; then
+	file="$(echo "$1" | cut -d'=' -f2)"
+	me="$(shuf -n 1 "$file")"
 else
 	me=$1
 fi
